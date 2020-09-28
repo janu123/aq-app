@@ -1,0 +1,43 @@
+---
+title: "Air quality app"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ropenaq)
+library(tidyverse)
+library(leaflet)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+India_cities<-aq_cities(country = "IN")
+locations<-aq_locations(country = "IN")
+#measurements<-aq_measurements(country = "IN")
+leaflet(data = locations) %>% addTiles() %>%
+  addCircleMarkers(~longitude, ~latitude, popup = ~as.character(city), label = ~as.character(city))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
