@@ -21,7 +21,6 @@ Column {data-width=650}
 ```{r}
 India_cities<-aq_cities(country = "IN")
 locations<-aq_locations(country = "IN")
-#measurements<-aq_measurements(country = "IN")
 leaflet(data = locations) %>% addTiles() %>%
   addCircleMarkers(~longitude, ~latitude, popup = ~as.character(city), label = ~as.character(city))
 ```
